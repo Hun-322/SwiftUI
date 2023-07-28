@@ -13,6 +13,13 @@
 		54F3379C2A6FE2A300F8FD08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54F3379B2A6FE2A300F8FD08 /* Preview Assets.xcassets */; };
 		54F337A32A6FF1CB00F8FD08 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */; };
 		54F337A52A6FF34600F8FD08 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F337A42A6FF34600F8FD08 /* MapView.swift */; };
+		54F8F8EE2A73C6890038BE29 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54F8F8E02A73C6890038BE29 /* LICENSE.txt */; };
+		54F8F8FA2A73C6890038BE29 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 54F8F8ED2A73C6890038BE29 /* landmarkData.json */; };
+		54F8F8FC2A73C6C00038BE29 /* GoodPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F8FB2A73C6C00038BE29 /* GoodPlace.swift */; };
+		54F8F8FE2A73C82B0038BE29 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F8FD2A73C82B0038BE29 /* ModelData.swift */; };
+		54F8F9052A73D5860038BE29 /* GoodPlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */; };
+		54F8F9072A73FC930038BE29 /* GoodPlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */; };
+		54F8F9092A7401D70038BE29 /* GoodPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +30,13 @@
 		54F3379B2A6FE2A300F8FD08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		54F337A42A6FF34600F8FD08 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		54F8F8E02A73C6890038BE29 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		54F8F8ED2A73C6890038BE29 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
+		54F8F8FB2A73C6C00038BE29 /* GoodPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlace.swift; sourceTree = "<group>"; };
+		54F8F8FD2A73C82B0038BE29 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceRow.swift; sourceTree = "<group>"; };
+		54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceList.swift; sourceTree = "<group>"; };
+		54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				54F337942A6FE2A100F8FD08 /* SwiftUI_Chap1App.swift */,
-				54F337962A6FE2A100F8FD08 /* ContentView.swift */,
-				54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */,
-				54F337A42A6FF34600F8FD08 /* MapView.swift */,
+				54F8F8FF2A73D2990038BE29 /* Views */,
+				54F8F9002A73D29F0038BE29 /* Model */,
+				54F8F9012A73D2A50038BE29 /* Resources */,
 				54F337982A6FE2A300F8FD08 /* Assets.xcassets */,
 				54F3379A2A6FE2A300F8FD08 /* Preview Content */,
 			);
@@ -68,9 +82,56 @@
 		54F3379A2A6FE2A300F8FD08 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				54F8F8DE2A73C6890038BE29 /* Resources */,
 				54F3379B2A6FE2A300F8FD08 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		54F8F8DE2A73C6890038BE29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54F8F8DF2A73C6890038BE29 /* LICENSE */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		54F8F8DF2A73C6890038BE29 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				54F8F8E02A73C6890038BE29 /* LICENSE.txt */,
+			);
+			path = LICENSE;
+			sourceTree = "<group>";
+		};
+		54F8F8FF2A73D2990038BE29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54F337962A6FE2A100F8FD08 /* ContentView.swift */,
+				54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */,
+				54F337A42A6FF34600F8FD08 /* MapView.swift */,
+				54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */,
+				54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */,
+				54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		54F8F9002A73D29F0038BE29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54F8F8FB2A73C6C00038BE29 /* GoodPlace.swift */,
+				54F8F8FD2A73C82B0038BE29 /* ModelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54F8F9012A73D2A50038BE29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54F8F8ED2A73C6890038BE29 /* landmarkData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +192,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F8F8EE2A73C6890038BE29 /* LICENSE.txt in Resources */,
 				54F3379C2A6FE2A300F8FD08 /* Preview Assets.xcassets in Resources */,
+				54F8F8FA2A73C6890038BE29 /* landmarkData.json in Resources */,
 				54F337992A6FE2A300F8FD08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,10 +206,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F8F9072A73FC930038BE29 /* GoodPlaceList.swift in Sources */,
+				54F8F9052A73D5860038BE29 /* GoodPlaceRow.swift in Sources */,
 				54F337972A6FE2A100F8FD08 /* ContentView.swift in Sources */,
+				54F8F8FC2A73C6C00038BE29 /* GoodPlace.swift in Sources */,
 				54F337A52A6FF34600F8FD08 /* MapView.swift in Sources */,
 				54F337952A6FE2A100F8FD08 /* SwiftUI_Chap1App.swift in Sources */,
+				54F8F9092A7401D70038BE29 /* GoodPlaceDetail.swift in Sources */,
 				54F337A32A6FF1CB00F8FD08 /* CircleImage.swift in Sources */,
+				54F8F8FE2A73C82B0038BE29 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
