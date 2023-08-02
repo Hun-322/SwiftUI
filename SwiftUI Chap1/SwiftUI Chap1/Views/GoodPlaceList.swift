@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct GoodPlaceList: View {
+    @EnvironmentObject var modelData: ModelData
+    @State private var showFavoritesOnly = false
+    
+    var filteredGoodPlace: [GoodPlace] {
+        modelData.goodPlace.filter { goodPlace in
+            (!showFavoritesOnly || goodPlace.isFavorite)
+        }
+    }
     var body: some View {
         NavigationView {
-            List(goodPlace) { goodPlace in
-                NavigationLink {
-                    GoodPlaceDetail(goodPlace: goodPlace)
-                } label: {
-                    GoodPlaceRow(goodPlace: goodPlace)
+            List {
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
+                }
+                
+                ForEach(filteredGoodPlace) { goodPlace in
+                    NavigationLink {
+                        GoodPlaceDetail(goodPlace: goodPlace)
+                    } label: {
+                        GoodPlaceRow(goodPlace: goodPlace)
+                    }
                 }
             }
             .navigationTitle("GoodPlace")
@@ -24,10 +38,6 @@ struct GoodPlaceList: View {
 
 struct GoodPlaceList_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
-            GoodPlaceList()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
+        GoodPlaceList()
     }
 }

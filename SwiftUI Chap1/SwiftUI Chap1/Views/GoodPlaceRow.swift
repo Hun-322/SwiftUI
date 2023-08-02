@@ -18,17 +18,21 @@ struct GoodPlaceRow: View {
             Text(goodPlace.name)
             
             Spacer()
+            
+            if goodPlace.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }
 
 struct GoodPlaceRow_Previews: PreviewProvider {
+    static var goodPlace = ModelData().goodPlace
     static var previews: some View {
         Group {
             GoodPlaceRow(goodPlace: goodPlace[0])
-                .previewLayout(.fixed(width: 300, height: 70))
             GoodPlaceRow(goodPlace: goodPlace[1])
-                .previewLayout(.fixed(width: 300, height: 70))
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

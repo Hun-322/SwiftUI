@@ -20,6 +20,7 @@
 		54F8F9052A73D5860038BE29 /* GoodPlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */; };
 		54F8F9072A73FC930038BE29 /* GoodPlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */; };
 		54F8F9092A7401D70038BE29 /* GoodPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */; };
+		54F8F90C2A7A6F2F0038BE29 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F8F90B2A7A6F2F0038BE29 /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceRow.swift; sourceTree = "<group>"; };
 		54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceList.swift; sourceTree = "<group>"; };
 		54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPlaceDetail.swift; sourceTree = "<group>"; };
+		54F8F90B2A7A6F2F0038BE29 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +109,8 @@
 		54F8F8FF2A73D2990038BE29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54F8F90D2A7A6F710038BE29 /* Helper */,
 				54F337962A6FE2A100F8FD08 /* ContentView.swift */,
-				54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */,
-				54F337A42A6FF34600F8FD08 /* MapView.swift */,
 				54F8F9042A73D5860038BE29 /* GoodPlaceRow.swift */,
 				54F8F9062A73FC930038BE29 /* GoodPlaceList.swift */,
 				54F8F9082A7401D70038BE29 /* GoodPlaceDetail.swift */,
@@ -120,8 +121,8 @@
 		54F8F9002A73D29F0038BE29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				54F8F8FB2A73C6C00038BE29 /* GoodPlace.swift */,
 				54F8F8FD2A73C82B0038BE29 /* ModelData.swift */,
+				54F8F8FB2A73C6C00038BE29 /* GoodPlace.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +133,16 @@
 				54F8F8ED2A73C6890038BE29 /* landmarkData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		54F8F90D2A7A6F710038BE29 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				54F337A22A6FF1CB00F8FD08 /* CircleImage.swift */,
+				54F337A42A6FF34600F8FD08 /* MapView.swift */,
+				54F8F90B2A7A6F2F0038BE29 /* FavoriteButton.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				54F8F9072A73FC930038BE29 /* GoodPlaceList.swift in Sources */,
 				54F8F9052A73D5860038BE29 /* GoodPlaceRow.swift in Sources */,
 				54F337972A6FE2A100F8FD08 /* ContentView.swift in Sources */,
+				54F8F90C2A7A6F2F0038BE29 /* FavoriteButton.swift in Sources */,
 				54F8F8FC2A73C6C00038BE29 /* GoodPlace.swift in Sources */,
 				54F337A52A6FF34600F8FD08 /* MapView.swift in Sources */,
 				54F337952A6FE2A100F8FD08 /* SwiftUI_Chap1App.swift in Sources */,

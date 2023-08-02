@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct GoodPlaceDetail: View {
+    @EnvironmentObject var modelData: ModelData
     var goodPlace: GoodPlace
     
+    var goodPlaceIndex: Int {
+        modelData.goodPlace.firstIndex(where: { $0.id == goodPlace.id })!
+    }
     var body: some View {
         ScrollView {
             MapView(coordinate: goodPlace.locationCoordinate)
@@ -21,8 +25,11 @@ struct GoodPlaceDetail: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
-                Text(goodPlace.name)
-                    .font(.title)
+                HStack {
+                    Text(goodPlace.name)
+                        .font(.title)
+                    FavoriteButton(isSet: $modelData.goodPlace[goodPlaceIndex].isFavorite)
+                }
                 
                 HStack {
                     Text(goodPlace.park)
@@ -46,7 +53,10 @@ struct GoodPlaceDetail: View {
 }
 
 struct GoodPlaceDetail_Previews: PreviewProvider {
+    static let modelData = ModelData()
+    
     static var previews: some View {
-        GoodPlaceDetail(goodPlace: goodPlace[0])
+        GoodPlaceDetail(goodPlace: modelData.goodPlace[0])
+            .environmentObject(modelData)
     }
 }
