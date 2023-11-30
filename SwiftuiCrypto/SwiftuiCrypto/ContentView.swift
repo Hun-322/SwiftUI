@@ -14,7 +14,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 40) {
-                Text("Accnet Color")
+                Text("Accent Color")
                     .foregroundStyle(Color.theme.accent)
                 
                 Text("Secondary Text Color")
