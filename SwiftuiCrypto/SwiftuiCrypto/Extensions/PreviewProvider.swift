@@ -21,6 +21,10 @@ class DeveloperPreview {
     
     let homeVM = HomeViewModel()
     
+    let stat1 = StatisticModel(title: "시가총액", value: "$12.58n", percentageChange: 25.34)
+    let stat2 = StatisticModel(title: "총 가치", value: "$1.23Tr")
+    let stat3 = StatisticModel(title: "포트폴리오 가치", value: "$50.4k",percentageChange: -12.34)
+    
     let coin = CoinModel(id: "bitcoin",
                          symbol: "btc",
                          name: "비트코인",
