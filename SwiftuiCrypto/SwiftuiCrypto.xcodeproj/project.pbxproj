@@ -86,7 +86,6 @@
 			children = (
 				548BF73D2B1C920B002DEED6 /* CoinDataService.swift */,
 				548BF7482B1F01F1002DEED6 /* CoinImageService.swift */,
-				54F640812B20965E00F3882E /* LocalFileManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -94,6 +93,7 @@
 		548BF73F2B1DBCC1002DEED6 /* Utilties */ = {
 			isa = PBXGroup;
 			children = (
+				54F640812B20965E00F3882E /* LocalFileManager.swift */,
 				548BF7402B1DBD09002DEED6 /* NetworkingManager.swift */,
 			);
 			path = Utilties;
