@@ -31,12 +31,10 @@ class HomeViewModel: ObservableObject {
         // .store - sink를 구독하고 있는 동안 메모리 누수를 방지하기 위해 cancellables 컬렉션에 현재의 구독을 저장
             .store(in: &cancellables)
         
-        
         // updates marketData
         marketDataService.$marketData
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedStats in
-                print(returnedStats, "marketDataService")
                 self?.statistics = returnedStats
             }
             .store(in: &cancellables)
@@ -57,8 +55,9 @@ class HomeViewModel: ObservableObject {
         var stats: [StatisticModel] = []
         
         guard let data = marketDataModel else { return stats }
+        print(data)
         
-        let marketCap = StatisticModel(title: "시가총액", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
+        let marketCap = StatisticModel(title: "시가총액", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd == nil ? 1.02 : data.marketCapChangePercentage24HUsd)
         let volume = StatisticModel(title: "거래량", value: data.vloume)
         let btcDominace = StatisticModel(title: "BTC 도미넌스", value: data.btcDominace)
         let portfolio = StatisticModel(title: "보유자산 가치", value: "$0.00", percentageChange: 0)

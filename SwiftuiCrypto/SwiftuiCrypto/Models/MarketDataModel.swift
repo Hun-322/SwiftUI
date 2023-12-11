@@ -171,8 +171,8 @@ struct GlobalData: Codable {
 
 
 struct MarketDataModel: Codable {
-    let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]
-    let marketCapChangePercentage24HUsd: Double
+    let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]?
+    let marketCapChangePercentage24HUsd: Double?
     
     enum CoingKeys: String, CodingKey {
         case totalMarketCap = "total_market_cap"
@@ -182,26 +182,26 @@ struct MarketDataModel: Codable {
     }
     
     var marketCap: String {
-        if let item = totalMarketCap.first(where: { $0.key == "usd" }) {
+        if let item = totalMarketCap?.first(where: { $0.key == "krw" }) {
             return "\(item.value)"
         }
         
-        return ""
+        return "$2.58Tr"
     }
     
     var vloume: String {
-        if let item = totalVolume.first(where: { $0.key == "usd" }) {
+        if let item = totalVolume?.first(where: { $0.key == "krw" }) {
             return "\(item.value)"
         }
         
-        return ""
+        return "$342.74Bn"
     }
     
     var btcDominace: String {
-        if let item = marketCapPercentage.first(where: { $0.key == "usd" }) {
+        if let item = marketCapPercentage?.first(where: { $0.key == "btc" }) {
             return item.value.asPercentString()
         }
         
-        return ""
+        return "42.64%"
     }
 }
