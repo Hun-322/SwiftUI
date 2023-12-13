@@ -283,7 +283,7 @@ struct CoinModel: Identifiable, Codable {
                          atlDate: atlDate, lastUpdated: lastUpdated,
                          sparklineIn7D: sparklineIn7D,
                          priceChangePercentage24HInCurrency: priceChangePercentage24HInCurrency,
-                         currnetHoldings: currnetHoldings)
+                         currnetHoldings: amount)
     }
     
     var currentHoldingsValue: Double {
