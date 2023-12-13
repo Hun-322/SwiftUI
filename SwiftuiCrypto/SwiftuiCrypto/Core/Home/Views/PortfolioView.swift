@@ -13,6 +13,7 @@ struct PortfolioView: View {
     @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
@@ -29,7 +30,7 @@ struct PortfolioView: View {
             .navigationTitle("보유 자산 수정")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    XMarkButton()
+                    leadingNavBarButton
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     trailingNavBarButton
@@ -106,6 +107,15 @@ extension PortfolioView {
         .animation(.none)
         .padding()
         .font(.headline)
+    }
+    
+    private var leadingNavBarButton: some View {
+        Button {
+            dismiss()
+        } label: {
+            Image(systemName: "xmark")
+                .font(.headline)
+        }
     }
     
     private var trailingNavBarButton: some View {
