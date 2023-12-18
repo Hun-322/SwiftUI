@@ -121,6 +121,7 @@
 		54653B922B2D754900D79015 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5446EF2C2B2F297400E96922 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -250,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				548BF73A2B1B52FD002DEED6 /* HomeViewModel.swift */,
-				5446EF2C2B2F297400E96922 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
