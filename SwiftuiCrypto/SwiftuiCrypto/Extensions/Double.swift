@@ -20,7 +20,7 @@ extension Double {
         formatter.locale = .current // <- default value
         formatter.currencyCode = "krw" // <- change currency
         formatter.currencySymbol = "₩" // <- change currnet symbol
-
+        
         return formatter
     }
     
@@ -51,38 +51,38 @@ extension Double {
     
     /// Convert a Double to a String with K, M, Bn, Tr abbreviations.
     /// ```
-    /// Convert 12 to 12.00
-    /// Convert 1234 to 1.23K
-    /// Convert 123456 to 123.45K
-    /// Convert 12345678 to 12.34M
-    /// Convert 1234567890 to 1.23Bn
-    /// Convert 123456789012 to 123.45Bn
-    /// Convert 12345678901234 to 12.34Tr
+    ///   - 12.00 => "12.00"
+    ///   - 1234 => "1.23천"
+    ///   - 123456 => "12.35만"
+    ///   - 12345678 => "1234.57만"
+    ///   - 1234567890 => "12.35억"
+    ///   - 123456789012 => "1234.57억"
+    ///   - 12345678901234 => "12.34조"
     /// ```
-    func formattedWithAbbreviations() -> String {
-        let num = abs(Double(self))
+    func formattedWithKoreanAbbreviations() -> String {
+        let num = abs(self)
         let sign = (self < 0) ? "-" : ""
-
+        
         switch num {
         case 1_000_000_000_000...:
             let formatted = num / 1_000_000_000_000
             let stringFormatted = formatted.asNumberString()
-            return "\(sign)\(stringFormatted)Tr"
+            return "\(sign)\(stringFormatted)조"
         case 1_000_000_000...:
             let formatted = num / 1_000_000_000
             let stringFormatted = formatted.asNumberString()
-            return "\(sign)\(stringFormatted)Bn"
+            return "\(sign)\(stringFormatted)억"
         case 1_000_000...:
             let formatted = num / 1_000_000
             let stringFormatted = formatted.asNumberString()
-            return "\(sign)\(stringFormatted)M"
-        case 1_000...:
-            let formatted = num / 1_000
+            return "\(sign)\(stringFormatted)백만"
+        case 10_000...:
+            let formatted = num / 10_000
             let stringFormatted = formatted.asNumberString()
-            return "\(sign)\(stringFormatted)K"
+            return "\(sign)\(stringFormatted)만"
         case 0...:
             return self.asNumberString()
-
+            
         default:
             return "\(sign)\(self)"
         }

@@ -46,14 +46,14 @@ class DetailViewModel: ObservableObject {
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceStat = StatisticModel(title: "현재 가격", value: price, percentageChange: pricePercentChange)
         
-        let marketCap = "₩" + (coinModel.marketCap?.formattedWithAbbreviations() ?? "")
+        let marketCap = "₩" + (coinModel.marketCap?.formattedWithKoreanAbbreviations() ?? "")
         let marketCapPercentChange = coinModel.marketCapChangePercentage24H
         let marketCapStat = StatisticModel(title: "시가총액", value: marketCap, percentageChange: marketCapPercentChange)
         
         let rank = "\(coinModel.rank)"
         let rankStat = StatisticModel(title: "랭크", value: rank)
         
-        let volume = "₩" + (coinModel.totalVolume?.formattedWithAbbreviations() ?? "")
+        let volume = "₩" + (coinModel.totalVolume?.formattedWithKoreanAbbreviations() ?? "")
         let volumeStat = StatisticModel(title: "거래량", value: volume)
         
         let overViewArray: [StatisticModel] = [
@@ -75,7 +75,7 @@ class DetailViewModel: ObservableObject {
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceChangeStat = StatisticModel(title: "24시 가격 변동", value: priceChange, percentageChange: pricePercentChange)
         
-        let marketCapChange = "₩" + (coinModel.marketCapChangePercentage24H?.formattedWithAbbreviations() ?? "")
+        let marketCapChange = "₩" + (coinModel.marketCapChangePercentage24H?.formattedWithKoreanAbbreviations() ?? "")
         let marketCapPercentChange = coinModel.marketCapChangePercentage24H
         let marketCapChangeStat = StatisticModel(title: "24시 시가 총액 변동", value: marketCapChange, percentageChange: marketCapPercentChange)
         

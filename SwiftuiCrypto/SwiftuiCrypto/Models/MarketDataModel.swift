@@ -186,7 +186,7 @@ struct MarketDataModel: Codable {
             return "\(item.value)"
         }
         
-        return "$2.58Tr"
+        return "₩2.58조"
     }
     
     var vloume: String {
@@ -194,7 +194,7 @@ struct MarketDataModel: Codable {
             return "\(item.value)"
         }
         
-        return "$342.74Bn"
+        return "₩342.74억"
     }
     
     var btcDominace: String {
