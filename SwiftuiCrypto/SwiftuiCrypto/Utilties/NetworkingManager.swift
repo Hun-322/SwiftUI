@@ -25,10 +25,8 @@ class NetworkingManager {
     static func download(url: URL) -> AnyPublisher<Data, any Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
         // subscribe - 네트워크 요청을 수행할 큐를 설정하는 메서드
-            .subscribe(on: DispatchQueue.global())
             .tryMap({ try handleURLResponse(output: $0, url: url) })
-        // receive - 메인 큐에서 수행되도록 설정하는 메서드
-            .receive(on: DispatchQueue.main)
+            .retry(3)
         // eraseToAnyPublisher - 특정 Publisher 유형을 지우고, 제네릭 유형이 필요한 코드에서 유연하게 처리해주는 메서드
         // Publishers.ReceiveOn<Publishers.TryMap<Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>, Data>, DispatchQueue> 이게 원래 반환 메서드인데
         // eraseToAnyPublisher 메서드를 사용함으로 AnyPublisher<Data, any Error>으로 줄여짐
