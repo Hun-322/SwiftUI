@@ -27,6 +27,10 @@ struct PortfolioView: View {
                     }
                 }
             }
+            .background(
+                Color.theme.background
+                    .ignoresSafeArea()
+            )
             .navigationTitle("보유 자산 수정")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
