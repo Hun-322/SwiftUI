@@ -169,7 +169,6 @@ struct GlobalData: Codable {
     let data: MarketDataModel?
 }
 
-
 struct MarketDataModel: Codable {
     let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]?
     let marketCapChangePercentage24HUsd: Double?
