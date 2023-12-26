@@ -14,7 +14,7 @@ protocol ServableAPI {
 }
 
 extension ServableAPI {
-    var baseURL: String { "https://api.coingecko.com/api/v3" }
+    var baseURL: String { "https://api.coingecko.com/api/v3/" }
     var urlRequest: URLRequest {
         var urlComponents = URLComponents(string: baseURL + path)!
         let queryItems = params.map { (key: String, value: String) in

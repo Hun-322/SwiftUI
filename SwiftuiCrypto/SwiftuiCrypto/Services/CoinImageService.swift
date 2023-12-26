@@ -35,15 +35,23 @@ class CoinImageService {
         }
     }
     
-    private func downloadCoinImage() {
+    private func downloadCoinImage(_ networkService: NetworkServable = NetworkService()) {
         guard let url = URL(string: coin.image) else { return }
         
-        imageSubscription = NetworkingManager().request(url: url)
+        imageSubscription = networkService.request(url: url)
             .tryMap({ data -> UIImage? in
                 return UIImage(data: data)
             })
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: NetworkingManager().handleCompletion, receiveValue: {[weak self] (returndImage) in
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    // 이미지 다운로드 중 에러 처리
+                    print("Image download error: \(error.localizedDescription)")
+                }
+            }, receiveValue: {[weak self] (returndImage) in
                 guard let self = self, let downloadImage = returndImage else { return }
                 self.image = returndImage
                 self.imageSubscription?.cancel()

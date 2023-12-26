@@ -8,12 +8,32 @@
 import Foundation
 import Combine
 
-protocol Networkable {
+protocol NetworkServable {
+    func request<API>(_ api: API) -> AnyPublisher<API.Response, NetworkError> where API: ServableAPI
     func request(url: URL) -> AnyPublisher<Data, NetworkError>
+    func handleCompletion(completion: Subscribers.Completion<NetworkError>)
 }
 
-class NetworkingManager: Networkable {
+class NetworkService: NetworkServable {
         
+    init() {}
+    
+    func request<API>(
+        _ api: API
+    ) -> AnyPublisher<API.Response, NetworkError>
+    where API: ServableAPI {
+        let session = URLSession.shared
+        
+        return session.dataTaskPublisher(for: api.urlRequest)
+            .tryMap { data, response in
+                try self.validate(response)
+                return data
+            }
+            .decode(type: API.Response.self, decoder: JSONDecoder())
+            .mapError{ self.convertNetworkError(from: $0) }
+            .eraseToAnyPublisher()
+    }
+    
     func request(url: URL) -> AnyPublisher<Data, NetworkError> {
         let session = URLSession.shared
         
@@ -25,9 +45,10 @@ class NetworkingManager: Networkable {
             .mapError{ self.convertNetworkError(from: $0) }
             .eraseToAnyPublisher()
     }
+
     
     
-    func handleCompletion(completion: Subscribers.Completion<Error>) {
+    func handleCompletion(completion: Subscribers.Completion<NetworkError>) {
         switch completion {
         case .finished:
             break
@@ -37,7 +58,7 @@ class NetworkingManager: Networkable {
     }
 }
 
-extension NetworkingManager {
+extension NetworkService {
     
     private func validate(_ response: URLResponse) throws {
         guard let httpResponse = response as? HTTPURLResponse else {
