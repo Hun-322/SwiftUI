@@ -15,14 +15,22 @@ protocol ServableAPI {
 
 extension ServableAPI {
     var baseURL: String { "https://api.coingecko.com/api/v3/" }
+    var method: HTTPMethod { .get }
+    var headers: [String : String]? { nil }
     var urlRequest: URLRequest {
         var urlComponents = URLComponents(string: baseURL + path)!
         let queryItems = params.map { (key: String, value: String) in
             URLQueryItem(name: key, value: value)
         }
         urlComponents.queryItems = queryItems
-        
         var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = method.rawValue
+        
+        if let headers {
+            headers.forEach { (key: String, value: String) in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
         
         return request
     }
