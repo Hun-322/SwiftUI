@@ -19,7 +19,10 @@ class CoinDataService {
     }
     
     func getCoins(_ networkService: NetworkServable = NetworkService()) {
-        let coinDataAPI = CoinDataAPI()
+        let coinDataAPI = CoinDataAPI(vsCurrency: "krw",
+                                      order: "market_cap_desc",
+                                      priceChangePercentage: "24h")
+
         coinSubscription = networkService.request(coinDataAPI)
         // decode - JSON 디코딩 수행, CoinModel타입의 배열로 변환
 //            .decode(type: [CoinModel].self, decoder: JSONDecoder())

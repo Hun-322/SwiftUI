@@ -10,13 +10,13 @@ import Foundation
 struct CoinDetailAPI: ServableAPI {
     typealias Response = CoinDetailModel
     
-    var id: String
-    var localization: Bool = false
-    var tickers: Bool = false
-    var marketData: Bool = false
-    var communityData: Bool = false
-    var developerData: Bool = false
-    var sparkline: Bool = false
+    private var id: String
+    private var localization: Bool = false
+    private var tickers: Bool = false
+    private var marketData: Bool = false
+    private var communityData: Bool = false
+    private var developerData: Bool = false
+    private var sparkline: Bool = false
     
     init(id: String) {
         self.id = id

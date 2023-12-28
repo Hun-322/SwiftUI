@@ -10,23 +10,23 @@ import Foundation
 struct CoinDataAPI: ServableAPI {
     typealias Response = [CoinModel]
     
-    var vsCurrency: String = "krw"
-    var order: String = "market_cap_desc"
-    var perPage: String = "250"
-    var page: String = "1"
-    var sparkline: Bool = true
-    var priceChangePercentage: String = "24h"
-    var locale: String = "ko"
+    private var vsCurrency: String
+    private var order: String
+    private var perPage: String
+    private var page: String
+    private var sparkline: Bool
+    private var priceChangePercentage: String
+    private var locale: String
     
-//    init(vsCurrency: String, order: String, perPage: String, page: String, sparkline: Bool, priceChangePercentage: String, locale: String) {
-//        self.vsCurrency = vsCurrency
-//        self.order = order
-//        self.perPage = perPage
-//        self.page = page
-//        self.sparkline = sparkline
-//        self.priceChangePercentage = priceChangePercentage
-//        self.locale = locale
-//    }
+    init(vsCurrency: String, order: String, perPage: String = "250", page: String = "1", sparkline: Bool = true, priceChangePercentage: String, locale: String = "ko") {
+        self.vsCurrency = vsCurrency
+        self.order = order
+        self.perPage = perPage
+        self.page = page
+        self.sparkline = sparkline
+        self.priceChangePercentage = priceChangePercentage
+        self.locale = locale
+    }
     
     var path: String { "coins/markets" }
     var params: [String : String] {

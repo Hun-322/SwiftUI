@@ -21,7 +21,7 @@ extension URLSession: URLSessionProtocol {}
 
 protocol NetworkServable {
     func request<API>(_ api: API) -> AnyPublisher<API.Response, NetworkError> where API: ServableAPI
-    func request(url: URL) -> AnyPublisher<Data, NetworkError>
+    func imageDownload(url: URL) -> AnyPublisher<Data, NetworkError>
     func handleCompletion(completion: Subscribers.Completion<NetworkError>)
 }
 
@@ -46,7 +46,7 @@ class NetworkService: NetworkServable {
             .eraseToAnyPublisher()
     }
     
-    func request(url: URL) -> AnyPublisher<Data, NetworkError> {
+    func imageDownload(url: URL) -> AnyPublisher<Data, NetworkError> {
         let urlRequest = URLRequest(url: url)
         return session.dataTaskPublisher(for: urlRequest)
             .tryMap { data, response in
@@ -56,8 +56,6 @@ class NetworkService: NetworkServable {
             .mapError{ self.convertNetworkError(from: $0) }
             .eraseToAnyPublisher()
     }
-
-    
     
     func handleCompletion(completion: Subscribers.Completion<NetworkError>) {
         switch completion {
