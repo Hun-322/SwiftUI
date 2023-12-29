@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-class CoinDetailService {
+final class CoinDetailService {
     
     @Published var coinDetails: CoinDetailModel? = nil
     
-    var coinDetailSubscription: AnyCancellable?
-    let coin: CoinModel
+    private var coinDetailSubscription: AnyCancellable?
+    private let coin: CoinModel
     
     init(coin: CoinModel) {
         self.coin = coin

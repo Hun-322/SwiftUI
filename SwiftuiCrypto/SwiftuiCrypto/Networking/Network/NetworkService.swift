@@ -25,8 +25,8 @@ protocol NetworkServable {
     func handleCompletion(completion: Subscribers.Completion<NetworkError>)
 }
 
-class NetworkService: NetworkServable {
-    let session: URLSessionProtocol
+final class NetworkService: NetworkServable {
+    private let session: URLSessionProtocol
     
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
